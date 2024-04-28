@@ -43,7 +43,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Landao\\": "src/"
+      "LanDao\\LaravelCore\\": "src/"
     },
     "files": [
     ]
