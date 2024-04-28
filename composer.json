@@ -1,0 +1,54 @@
+{
+  "name": "landao/laravel-core",
+  "description": "Laravel 6|7|8|9|10 Repository,enum,model",
+  "keywords": [
+    "laravel",
+    "repository",
+    "eloquent",
+    "model",
+    "cache",
+    "enum"
+  ],
+  "require": {
+    "php": ">=8.1",
+    "illuminate/support": "^8.0|^9.0|^10.0",
+    "illuminate/database": "^8.0|^9.0|^10.0",
+    "illuminate/cache": "^8.0|^9.0|^10.0",
+    "illuminate/http": "^8.0|^9.0|^10.0",
+    "illuminate/config": "^8.0|^9.0|^10.0",
+    "illuminate/pagination": "^8.0|^9.0|^10.0",
+    "illuminate/console": "^8.0|^9.0|^10.0",
+    "illuminate/filesystem": "^8.0|^9.0|^10.0",
+    "illuminate/validation": "^8.0|^9.0|^10.0"
+  },
+  "require-dev": {
+  },
+  "license": "Apache",
+  "autoload": {
+    "psr-4": {
+      "LanDao\\LaravelCore\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LanDao\\LaravelCore\\Providers\\RepositoryServiceProvider"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "joycezhangw",
+      "homepage": "https://qilindao.github.io/docs/",
+      "email": "zhangwei762@163.com"
+    }
+  ],
+  "homepage": "https://qilindao.github.io/docs/backend/",
+  "support": {
+    "wiki": "https://qilindao.github.io/docs/backend/",
+    "source": "https://github.com/Joycezhangw/laravel-lib",
+    "docs": "https://qilindao.github.io/docs/backend/"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
