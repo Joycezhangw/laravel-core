@@ -26,14 +26,11 @@
   "license": "Apache",
   "autoload": {
     "psr-4": {
-      "LanDao\\LaravelCore\\": "src/"
+      "LanDao\\": "src"
     }
   },
   "extra": {
     "laravel": {
-      "providers": [
-        "LanDao\\LaravelCore\\Providers\\RepositoryServiceProvider"
-      ]
     }
   },
   "authors": [
