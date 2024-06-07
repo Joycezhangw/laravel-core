@@ -8,7 +8,7 @@ use Attribute;
 #[Attribute(Attribute::TARGET_PROPERTY)]
 final class Inject
 {
-    public function __construct(protected ?string $abstract = null)
+    public function __construct(public ?string $abstract = null)
     {
 
     }
