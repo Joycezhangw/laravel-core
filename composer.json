@@ -52,5 +52,12 @@
     "psr-4": {
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LanDao\\LaravelCore\\ServiceProvider"
+      ]
+    }
+  },
   "minimum-stability": "dev"
 }
