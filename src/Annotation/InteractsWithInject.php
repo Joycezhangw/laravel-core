@@ -18,6 +18,9 @@ trait InteractsWithInject
         $isEnable = config('landao.annotation.inject.enable', true);
         if ($isEnable) {
             $this->app->resolving(function ($object, $app) {
+                //由于 spatie/laravel-route-attributes 冲突，所以，此处要判断是否是object
+                //本来以为是 spatie/laravel-route-attributes 的冲突，所以将 spatie/laravel-route-attributes copy 一份到本扩展中
+                if(!is_object($object)) return;
                 if ($this->isInjectClass(get_class($object))) {
                     $refObject = new ReflectionObject($object);
                     foreach ($refObject->getProperties() as $refProperty) {
