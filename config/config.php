@@ -34,4 +34,20 @@ return [
     ],
     "module" => [
     ],
+    "annotation" => [
+        'inject' => [
+            'namespaces' => [
+                'Module\\Tenant\\Http\\Controllers'
+            ],
+        ],
+        'route' => [
+            'enable' => true,
+            'middleware' => [
+                \Illuminate\Routing\Middleware\SubstituteBindings::class
+            ],
+            'directories' => [
+                app_path('Http/Controllers')
+            ],
+        ],
+    ]
 ];
