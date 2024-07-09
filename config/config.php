@@ -14,8 +14,7 @@ return [
         'codelen' => 4,
         'width' => 130,
         'height' => 50,
-        // 为空为默认字体
-        'font' => '',
+        'font' => '',// 为空为默认字体
         'fontsize' => 20,
         'cachetime' => 300,
     ],
@@ -26,13 +25,14 @@ return [
         'basePath' => app()->path(),
         'rootNamespace' => 'App\\',
         'paths' => [
-            'models' => 'Services\\Models',
-            'repositories' => 'Services\\Repositories',
-            'interfaces' => 'Services\\Repositories',
-            'enums' => 'Services\\Enums',
+            'models' => ['path' => 'app/Models', 'generate' => false],
+            'repositories' => ['path' => 'app/Repositories', 'generate' => false],
+            'enums' => ['path' => 'app/Enums', 'generate' => false],
+            'requests' => ['path' => 'app/Http/Requests', 'generate' => false],
         ]
     ],
     "module" => [
+        'Tenant'
     ],
     "annotation" => [
         'inject' => [
@@ -46,7 +46,15 @@ return [
                 \Illuminate\Routing\Middleware\SubstituteBindings::class
             ],
             'directories' => [
-                app_path('Http/Controllers')
+                app_path('Http/Controllers') => [
+                    'not_patterns' => ['*Controller.php']
+                ],
+                module_path('tenant', 'app/Http/Controllers/V1') => [
+                    'prefix' => 'app/tenant/v1',
+                    'middleware' => ['api', 'api.case.converter'],
+                    'as' => 'app.tenant.',
+                    'namespace' => 'Module\Tenant\Http\Controllers\V1\\'
+                ]
             ],
         ],
     ]
