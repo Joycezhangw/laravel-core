@@ -47,6 +47,7 @@
       "LanDao\\LaravelCore\\": "src/"
     },
     "files": [
+      "src/helpers.php"
     ]
   },
   "autoload-dev": {
