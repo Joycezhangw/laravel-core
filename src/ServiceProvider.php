@@ -23,8 +23,6 @@ class ServiceProvider extends LaravelServiceProvider
         $this->autoInject();
         //路由注解
         $this->registerRoutes();
-        $this->registerNamespaces();
-        $this->registerBindings();
     }
 
     protected function setupConfig(): void
@@ -38,15 +36,8 @@ class ServiceProvider extends LaravelServiceProvider
 
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'landao');
-        $this->app->bind(ModuleRepositoryInterface::class, Module::class);
-        $this->app->alias(ModuleRepositoryInterface::class, 'modules');
+        $this->registerBindings();
         $this->registerProviders();
-    }
-
-    protected function registerNamespaces(): void
-    {
-
     }
 
     protected function registerBindings(): void
@@ -62,6 +53,10 @@ class ServiceProvider extends LaravelServiceProvider
             $captcha->withConfig($config);
             return $captcha;
         });
+        $this->app->singleton(ModuleRepositoryInterface::class, function ($app) {
+            return new Module($app, base_path('module'));
+        });
+        $this->app->alias(ModuleRepositoryInterface::class, 'modules');
     }
 
     /**
