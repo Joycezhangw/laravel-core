@@ -9,13 +9,9 @@ if (!function_exists('module_path')) {
     function module_path(string $name, string $path = '')
     {
         $module = app('modules')->find($name);
-        dd($module);
+        if (!$module) return '';
+        $modulePath = base_path('module') . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR;
 
-        return $module->getPath().($path ? DIRECTORY_SEPARATOR.$path : $path);
-//        $module = app(Modules::class)->find($name);
-//        if (!$module) return '';
-//        $modulePath = base_path('module') . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR;
-//
-//        return $modulePath . $path;
+        return $modulePath . $path;
     }
 }
