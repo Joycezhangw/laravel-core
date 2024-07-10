@@ -49,7 +49,7 @@ return [
                 app_path('Http/Controllers') => [
                     'not_patterns' => ['*Controller.php']
                 ],
-                module_path('tenant', 'app/Http/Controllers/V1') => [
+                base_path('module/Tenant/app/Http/Controllers/V1') => [
                     'prefix' => 'app/tenant/v1',
                     'middleware' => ['api', 'api.case.converter'],
                     'as' => 'app.tenant.',
