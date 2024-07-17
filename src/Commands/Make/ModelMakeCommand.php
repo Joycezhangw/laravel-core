@@ -15,7 +15,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     protected $argumentName = 'name';
 
-    protected $name = 'module:make-model';
+    protected $name = 'landao:make-model';
 
     protected $description = 'Create a new enum class for the specified module.';
 
@@ -24,7 +24,7 @@ class ModelMakeCommand extends GeneratorCommand
         $moduleName = $this->getModuleName();
         $path = $this->laravel['modules']->getModulePath($moduleName);
         $filePath = GenerateConfigReader::read('models')->getPath() ?? 'app/Models';
-        return $path . $filePath . '/' . $this->getEnumName() . 'Model.php';
+        return $path . $filePath . '/' . $this->getModelName() . 'Model.php';
     }
 
     protected function getTemplateContents(): string
@@ -52,14 +52,14 @@ class ModelMakeCommand extends GeneratorCommand
         ];
     }
 
-    public function getEnumName(): string|array
+    public function getModelName(): string|array
     {
         return Str::studly($this->argument('name'));
     }
 
     private function getClassNameWithoutNamespace(): array|string
     {
-        return class_basename($this->getEnumName());
+        return class_basename($this->getModelName());
     }
 
     public function getDefaultNamespace(): string

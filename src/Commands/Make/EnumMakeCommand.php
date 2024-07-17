@@ -15,7 +15,7 @@ class EnumMakeCommand extends GeneratorCommand
 
     protected $argumentName = 'name';
 
-    protected $name = 'module:make-enum';
+    protected $name = 'landao:make-enum';
 
     protected $description = 'Create a new enum class for the specified module.';
 

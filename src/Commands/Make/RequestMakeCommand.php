@@ -15,7 +15,7 @@ class RequestMakeCommand extends GeneratorCommand
 
     protected $argumentName = 'name';
 
-    protected $name = 'module:make-request';
+    protected $name = 'landao:make-request';
 
     protected $description = 'Create a new enum class for the specified module.';
 
@@ -24,7 +24,7 @@ class RequestMakeCommand extends GeneratorCommand
         $moduleName = $this->getModuleName();
         $path = $this->laravel['modules']->getModulePath($moduleName);
         $filePath = GenerateConfigReader::read('requests')->getPath() ?? 'app/Http/Requests';
-        return $path . $filePath . '/' . $this->getEnumName() . 'Request.php';
+        return $path . $filePath . '/' . $this->getRequestName() . 'Request.php';
     }
 
     protected function getTemplateContents(): string
@@ -52,14 +52,14 @@ class RequestMakeCommand extends GeneratorCommand
         ];
     }
 
-    public function getEnumName(): string|array
+    public function getRequestName(): string|array
     {
         return Str::studly($this->argument('name'));
     }
 
     private function getClassNameWithoutNamespace(): array|string
     {
-        return class_basename($this->getEnumName());
+        return class_basename($this->getRequestName());
     }
 
     public function getDefaultNamespace(): string

@@ -28,7 +28,7 @@ return [
             'models' => ['path' => 'app/Models', 'generate' => false],
             'repositories' => ['path' => 'app/Repositories', 'generate' => false],
             'enums' => ['path' => 'app/Enums', 'generate' => false],
-            'requests' => ['path' => 'app/Http/Requests', 'generate' => false],
+            'requests' => ['path' => 'app/Http/Requests', 'generate' => false]
         ]
     ],
     "module" => [

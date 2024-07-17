@@ -16,7 +16,7 @@ class RepositoryMakeCommand extends GeneratorCommand
 
     protected $argumentName = 'name';
 
-    protected $name = 'module:make-repository';
+    protected $name = 'landao:make-repository';
 
     protected $description = 'Create a new Repositories class for the specified module.';
 
@@ -25,7 +25,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         $moduleName = $this->getModuleName();
         $path = $this->laravel['modules']->getModulePath($moduleName);
         $filePath = GenerateConfigReader::read('repositories')->getPath() ?? 'app/Repositories';
-        return $path . $filePath . '/' . $this->getEnumName() . 'Repo.php';
+        return $path . $filePath . '/' . $this->getRepositoryName() . 'Repo.php';
     }
 
     protected function getTemplateContents(): string
@@ -58,14 +58,14 @@ class RepositoryMakeCommand extends GeneratorCommand
         ];
     }
 
-    public function getEnumName(): string|array
+    public function getRepositoryName(): string|array
     {
         return Str::studly($this->argument('name'));
     }
 
     private function getClassNameWithoutNamespace(): array|string
     {
-        return class_basename($this->getEnumName());
+        return class_basename($this->getRepositoryName());
     }
 
     public function getDefaultNamespace(): string
