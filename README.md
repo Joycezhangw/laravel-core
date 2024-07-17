@@ -29,11 +29,11 @@ php artisan vendor:publish --provider="LanDao\LaravelCore\ServiceProvider"
 
 ### Repository 命令生成
 
-> php artisan module:make-repository 文件具体命名和路径 模块名称
+> php artisan landao:make-repository 文件具体命名和路径 模块名称
 > 没有添加模块名称，生成的文件在 app 目录下
 
 ```shell
-php artisan module:make-repository Bolg\\Post Tenant
+php artisan landao:make-repository Bolg\\Post Tenant
 ```
 执行以上命名会生成二个对应的文件如下
 
@@ -41,7 +41,7 @@ php artisan module:make-repository Bolg\\Post Tenant
 - `module\Tenant\app\Repositories\Bolg\PostRepo.php`
 
 ```shell
-php artisan module:make-repository Bolg\\Post
+php artisan landao:make-repository Bolg\\Post
 ```
 执行以上命名会生成二个对应的文件如下
 
@@ -51,7 +51,7 @@ php artisan module:make-repository Bolg\\Post
 ### Model 命令生成
 
 ```shell
-php artisan module:make-model Bolg\\Post Tenant
+php artisan landao:make-model Bolg\\Post Tenant
 ```
 
 运行以上命令生成的文件结构为
@@ -60,7 +60,7 @@ php artisan module:make-model Bolg\\Post Tenant
 ### Enum 命令生成
 
 ```shell
-php artisan module:make-enum Bolg\\Post Tenant
+php artisan landao:make-enum Bolg\\Post Tenant
 ```
 
 运行以上命令生成的文件结构为
@@ -70,7 +70,7 @@ php artisan module:make-enum Bolg\\Post Tenant
 
 
 ```shell
-php artisan module:make-request Bolg\\Post Tenant
+php artisan landao:make-request Bolg\\Post Tenant
 ```
 
 运行以上命令生成的文件结构为
