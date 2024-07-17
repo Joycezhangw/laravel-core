@@ -9,8 +9,10 @@ use LanDao\LaravelCore\Annotation\InteractsWithRoute;
 use LanDao\LaravelCore\Contracts\ModuleRepositoryInterface;
 use LanDao\LaravelCore\Module\Module;
 use LanDao\LaravelCore\Providers\ConsoleServiceProvider;
+use LanDao\LaravelCore\Sanctum\PersonalAccessToken;
 use LanDao\LaravelCore\Services\Captcha\Image\Captcha;
 use LanDao\LaravelCore\Services\Captcha\Contracts\Captcha as CaptchaContract;
+use Laravel\Sanctum\Sanctum;
 
 class ServiceProvider extends LaravelServiceProvider
 {
@@ -19,6 +21,8 @@ class ServiceProvider extends LaravelServiceProvider
     public function boot(): void
     {
         $this->setupConfig();
+        //sanctum 令牌缓存
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
         //自动注入
         $this->autoInject();
         //路由注解
