@@ -24,7 +24,8 @@ class ConsoleServiceProvider extends ServiceProvider
             Commands\Make\EnumMakeCommand::class,
             Commands\Make\RepositoryMakeCommand::class,
             Commands\Make\ModelMakeCommand::class,
-            Commands\Make\RequestMakeCommand::class
+            Commands\Make\RequestMakeCommand::class,
+            Commands\Make\MigrationMakeCommand::class
         ]);
     }
 }
