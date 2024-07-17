@@ -60,7 +60,7 @@ class ServiceProvider extends LaravelServiceProvider
         $this->app->singleton(ModuleRepositoryInterface::class, function ($app) {
             return new Module($app, base_path('module'));
         });
-        $this->app->alias(ModuleRepositoryInterface::class, 'modules');
+        $this->app->alias(ModuleRepositoryInterface::class, 'landaoModules');
     }
 
     /**

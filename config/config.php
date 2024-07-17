@@ -28,7 +28,9 @@ return [
             'models' => ['path' => 'app/Models', 'generate' => false],
             'repositories' => ['path' => 'app/Repositories', 'generate' => false],
             'enums' => ['path' => 'app/Enums', 'generate' => false],
-            'requests' => ['path' => 'app/Http/Requests', 'generate' => false]
+            'requests' => ['path' => 'app/Http/Requests', 'generate' => false],
+            //database
+            'migration' => ['path' => 'database/migrations', 'generate' => true],
         ]
     ],
     "module" => [
@@ -48,12 +50,6 @@ return [
             'directories' => [
                 app_path('Http/Controllers') => [
                     'not_patterns' => ['*Controller.php']
-                ],
-                base_path('module/Tenant/app/Http/Controllers/V1') => [
-                    'prefix' => 'app/tenant/v1',
-                    'middleware' => ['api', 'api.case.converter'],
-                    'as' => 'app.tenant.',
-                    'namespace' => 'Module\Tenant\Http\Controllers\V1\\'
                 ]
             ],
         ],

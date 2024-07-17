@@ -22,7 +22,7 @@ class ModelMakeCommand extends GeneratorCommand
     public function getDestinationFilePath(): string
     {
         $moduleName = $this->getModuleName();
-        $path = $this->laravel['modules']->getModulePath($moduleName);
+        $path = $this->laravel['landaoModules']->getModulePath($moduleName);
         $filePath = GenerateConfigReader::read('models')->getPath() ?? 'app/Models';
         return $path . $filePath . '/' . $this->getModelName() . 'Model.php';
     }
@@ -30,7 +30,7 @@ class ModelMakeCommand extends GeneratorCommand
     protected function getTemplateContents(): string
     {
         $module = $this->getModuleName();
-        $module = $module !== 'App' ? $this->laravel['modules']->findOrFail($module) : $module;
+        $module = $module !== 'App' ? $this->laravel['landaoModules']->findOrFail($module) : $module;
         return (new Stub($this->getStubName(), [
             'CLASS_NAMESPACE' => $this->getClassNamespace($module),
             'CLASS' => $this->getClassNameWithoutNamespace(),

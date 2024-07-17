@@ -23,7 +23,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     public function getDestinationFilePath(): string
     {
         $moduleName = $this->getModuleName();
-        $path = $this->laravel['modules']->getModulePath($moduleName);
+        $path = $this->laravel['landaoModules']->getModulePath($moduleName);
         $filePath = GenerateConfigReader::read('repositories')->getPath() ?? 'app/Repositories';
         return $path . $filePath . '/' . $this->getRepositoryName() . 'Repo.php';
     }
@@ -31,11 +31,11 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function getTemplateContents(): string
     {
         $module = $this->getModuleName();
-        $module = $module !== 'App' ? $this->laravel['modules']->findOrFail($module) : $module;
+        $module = $module !== 'App' ? $this->laravel['landaoModules']->findOrFail($module) : $module;
         $namespace = $this->getClassNamespace($module);
         $className = $this->getClassNameWithoutNamespace();
         //生成 Eloquent ORM 命令
-        Artisan::call('module:make-model', ['name' => $this->argument('name'), 'module' => $this->argument('module')]);
+        Artisan::call('landao:make-model', ['name' => $this->argument('name'), 'module' => $this->argument('module')]);
         return (new Stub($this->getStubName(), [
             'CLASS_NAMESPACE' => $namespace,
             'CLASS' => $className,
