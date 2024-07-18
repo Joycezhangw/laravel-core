@@ -23,11 +23,9 @@ php artisan vendor:publish --provider="LanDao\LaravelCore\ServiceProvider"
 
 ## Artisan 命令生成
 
-
 >Artisan 命令生成的文件，会根据具体类型更改文件名：`PostEnum`、`PostModel`、`PostRepo`
 
-
-### Repository 命令生成
+### 生成 Repository 
 
 > php artisan landao:make-repository 文件具体命名和路径 模块名称
 > 没有添加模块名称，生成的文件在 app 目录下
@@ -47,8 +45,8 @@ php artisan landao:make-repository Bolg\\Post
 
 - `app\Models\Bolg\PostModel.php`
 - `app\Repositories\Bolg\PostRepo.php`
-- 
-### Model 命令生成
+
+### 生成 Model 
 
 ```shell
 php artisan landao:make-model Bolg\\Post Tenant
@@ -57,17 +55,15 @@ php artisan landao:make-model Bolg\\Post Tenant
 运行以上命令生成的文件结构为
 - `module\Tenant\app\Models\Bolg\PostEnum.php`
 
-### Enum 命令生成
+### 生成 Enum 
 
 ```shell
 php artisan landao:make-enum Bolg\\Post Tenant
 ```
-
 运行以上命令生成的文件结构为
 - `module\Tenant\app\Enums\Bolg\PostEnum.php`
 
-### Request 命令生成
-
+### 生成 Request 
 
 ```shell
 php artisan landao:make-request Bolg\\Post Tenant
@@ -75,6 +71,14 @@ php artisan landao:make-request Bolg\\Post Tenant
 
 运行以上命令生成的文件结构为
 - `module\Tenant\app\Http\Request\Bolg\PostEnum.php`
+
+### 生成 Migration
+
+
+```shell
+php artisan landao:make-migration crate_post_table Tenant
+```
+
 
 ## PHP8 原生注解，路由注解、注入注解
 
